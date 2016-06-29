@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GameFactory</string>
+
+    <array name="app_option">
+        <item>SurfaceView绘制--游戏场景</item>
+        <item>SurfaceView绘制--游戏人物</item>
+        <item>SurfaceView绘制--游戏道具</item>
+        <item>SurfaceView绘制--游戏特效</item>
+        <item>游戏音效</item>
+        <item>游戏设置</item>
+    </array>
+
+</resources>
