@@ -66,19 +66,6 @@ public class HeroTank extends Tank {
 
     // 碰撞测试 -- 障碍物
     public boolean isCheckWall(Wall wall) {
-//        if (this.x >= wall.x && this.x + this.width >= wall.x) {
-//            this.x = wall.x - wall.w;
-//            return true;
-//        } else if (this.x <= wall.x + wall.w) {
-//            this.x = wall.x + wall.w;
-//            return true;
-//        } else if (this.y + this.width >= wall.y) {
-//            return true;
-//        } else if (this.y <= wall.y && this.y + this.height <= wall.y) {
-//            return true;
-//        }
-//        return false;
-
         if (this.x >= wall.x && this.x >= wall.x + wall.w) {
             return false;
         } else if (this.x <= wall.x && this.x + this.width <= wall.x) {

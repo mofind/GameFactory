@@ -1,4 +1,4 @@
-package com.mofind.gamefactory.utils;
+package com.mofind.gamemap;
 
 import android.content.Context;
 import android.graphics.Bitmap;

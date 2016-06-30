@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/GameFactory.iml" filepath="$PROJECT_DIR$/GameFactory.iml" />
       <module fileurl="file://$PROJECT_DIR$/GameMain/GameMain.iml" filepath="$PROJECT_DIR$/GameMain/GameMain.iml" />
       <module fileurl="file://$PROJECT_DIR$/gameframe/gameframe.iml" filepath="$PROJECT_DIR$/gameframe/gameframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gamemap/gamemap.iml" filepath="$PROJECT_DIR$/gamemap/gamemap.iml" />
       <module fileurl="file://$PROJECT_DIR$/gametank/gametank.iml" filepath="$PROJECT_DIR$/gametank/gametank.iml" />
     </modules>
   </component>

@@ -1,4 +1,4 @@
-package com.mofind.gamefactory;
+package com.mofind.gamemap;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,8 +11,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-
-import com.mofind.gamefactory.utils.ResourcesUtils;
 
 import java.io.InputStream;
 

@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/GameMain" />
             <option value="$PROJECT_DIR$/gameframe" />
+            <option value="$PROJECT_DIR$/gamemap" />
             <option value="$PROJECT_DIR$/gametank" />
           </set>
         </option>
@@ -19,6 +20,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/GameMain" />
             <option value="$PROJECT_DIR$/gameframe" />
+            <option value="$PROJECT_DIR$/gamemap" />
             <option value="$PROJECT_DIR$/gametank" />
           </set>
         </option>

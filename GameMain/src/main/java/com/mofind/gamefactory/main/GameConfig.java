@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.SurfaceView;
 
-import com.mofind.gamefactory.GameViewBg1;
 import com.mofind.gamefactory.R;
 
 /**
@@ -39,10 +38,9 @@ public class GameConfig extends Application {
         T gameView = null;
         switch (index) {
             case 0:
-                gameView = (T) new GameViewBg1(c, w, h);
+//                gameView = (T) new GameViewBg1(c, w, h);
                 break;
             default:
-                gameView = (T) new GameViewBg1(c, w, h);
                 break;
         }
         return gameView;
