@@ -21,16 +21,13 @@ Activity窗口的顶层视图DecorView及其两个TextView控件的UI都是绘�
 <br>
 SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使用两个缓冲区，其中一个称为Front Buffer，另外一个称为Back Buffer。UI总是先在Back Buffer中绘制，然后再和Front Buffer交换，渲染到显示设备中。
 <br>
+-------------------------------------------------------------------------------------
 <br>
 <b>SurfaceView绘图的几个重要方法</b>
 <br>
--------------------------------------------------------------------------------------
-<br>
 一、canvas.translate() － 画布的平移：
 <br>
-<br>
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
-<br>
 <br>
 此时整个画布的左上角出现了一个红色的矩形（为了更清楚，蓝色打个底）该矩形大小为400 X 400 ，效果如下：
 <br>
@@ -38,11 +35,8 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <br>
 接下来我们canvas.translate( )玩玩
 <br>
-<br>
 canvas.drawColor(Color.BLUE);  
-<br>
 canvas.translate(100, 100);  
-<br>
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
 <br>
 <img src="http://img.blog.csdn.net/20150506125056610?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
@@ -51,11 +45,8 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <br>
 二、canvas.scale( ) － 画布的缩放：
 <br>
-<br>
 canvas.scale(0.5f, 0.5f); 
-<br>
 mPaint.setColor(Color.YELLOW);  
-<br>
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
 <br>
 <img src="http://img.blog.csdn.net/20150506204938070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
@@ -65,9 +56,7 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 三、canvas.rotate( ) － 画布的旋转：
 <br>
 mPaint.setColor(Color.YELLOW);  
-<br>
 canvas.rotate(45);  
-<br>
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint); 
 <br>
 <img src="http://img.blog.csdn.net/20150507125942943?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
@@ -82,9 +71,7 @@ canvas.rotate(45,200,200);
 <br>
 // x 方向上倾斜45 度  
 canvas.skew(1, 0);  
-<br>
 mPaint.setColor(0x8800ff00);  
-<br>
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
 <br>
 <img src="http://img.blog.csdn.net/20150507132403246?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
@@ -238,5 +225,5 @@ public class GameView extends SurfaceView implements Callback, Runnable {
 <a>Canvas之translate、scale、rotate、skew方法讲解！ http://blog.csdn.net/tianjian4592/article/details/45234419</a>
 <br>
 <br>
-特别鸣谢：王志翔、王珂
+特别鸣谢：王志翔、王珂两位游戏开发大神，膜拜！！！
 <br>
