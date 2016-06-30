@@ -20,14 +20,31 @@ Activity窗口的顶层视图DecorView及其两个TextView控件的UI都是绘�
 注意，用来描述SurfaceView的Layer或者LayerBuffer的Z轴位置是小于用来其宿主Activity窗口的Layer的Z轴位置的，但是前者会在后者的上面挖一个“洞”出来，以便它的UI可以对用户可见。实际上，SurfaceView在其宿主Activity窗口上所挖的“洞”只不过是在其宿主Activity窗口上设置了一块透明区域。
 <br>
 <br>
-<b>SurfaceView的其它特性</b>
+<b>SurfaceView的双缓冲机制</b>
 <br>
-SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使用两个缓冲区，其中一个称为Front Buffer，另外一个称为Back Buffer。UI总是先在Back Buffer中绘制，然后再和Front Buffer交换，渲染到显示设备中。
+SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使用两个缓冲区，其中一个称为Front Buffer，另外一个称为Back Buffer。UI总是先在Back Buffer中绘制，然后再和Front Buffer交换，渲染到显示设备中。这样就不会阻塞主线程了，所以它更适合于游戏的开发。
 <br>
 -------------------------------------------------------------------------------------
 <br>
 <b>SurfaceView绘图的几个重要方法</b>
 <br>
+首先继承SurfaceView，并实现SurfaceHolder.Callback接口
+<br>
+实现它的三个方法：surfaceCreated，surfaceChanged，surfaceDestroyed。
+<br>
+surfaceCreated(SurfaceHolder holder)：surface创建的时候调用，一般在该方法中启动绘图的线程。
+<br>
+surfaceChanged(SurfaceHolder holder, int format, int width,int height)：surface尺寸发生改变的时候调用，如横竖屏切换。
+<br>
+surfaceDestroyed(SurfaceHolder holder) ：surface被销毁的时候调用，如退出游戏画面，一般在该方法中停止绘图线程。
+<br>
+<br>
+<b>canvas.save()与canvas.restore()</b>
+<br>
+这里canvas.save();和canvas.restore();是两个相互匹配出现的，作用是用来保存画布的状态和取出保存的状态的。这里稍微解释一下，
+当我们对画布进行旋转，缩放，平移等操作的时候其实我们是想对特定的元素进行操作，比如图片，一个矩形等，但是当你用canvas的方法来进行这些操作的时候，其实是对整个画布进行了操作，那么之后在画布上的元素都会受到影响，所以我们在操作之前调用canvas.save()来保存画布当前的状态，当操作之后取出之前保存过的状态，这样就不会对其他的元素进行影响
+<br>
+-------------------------------------------------------------------------------------
 <br>
 一、canvas.translate() － 画布的平移：
 ``` java
