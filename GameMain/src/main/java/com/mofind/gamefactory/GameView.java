@@ -55,19 +55,45 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
         try {
             mCanvas = mHolder.lockCanvas();
             if (mCanvas != null) {
-                mCanvas.drawColor(Color.BLUE);
 
+                // 画背景
+                mCanvas.drawColor(Color.GRAY);
+
+                // 画点
+                mCanvas.save();
+                mPaint.setColor(Color.GREEN);
+                mPaint.setTextSize(30);
+                mCanvas.drawPoint(600, 100, mPaint);
+                mCanvas.restore();
+
+
+                // 画线
+                mCanvas.save();
+                mPaint.setColor(0xff990099);
+                mPaint.setTextSize(10);
+                mCanvas.drawLine(300, 300, 600, 600, mPaint);
+                mCanvas.restore();
+
+                // 画文字
+                mCanvas.save();
+                mPaint.setColor(Color.WHITE);
+                mPaint.setTextSize(30);
+                mCanvas.drawText("Hello, laifeng", 500, 500, mPaint);
+                mCanvas.restore();
+
+
+                // 画圆形
                 mCanvas.save();
                 mPaint.setColor(Color.YELLOW);
-                mCanvas.skew(2, 2);
                 mCanvas.drawCircle(100, 100, 100, mPaint);
                 mCanvas.restore();
 
+                // 画矩形
                 mCanvas.save();
                 mPaint.setColor(Color.RED);
-                mCanvas.translate(100, 0);
-                mCanvas.rotate(45, 100, 100);
-                mCanvas.scale(2, 2);
+//                mCanvas.translate(100, 0);
+//                mCanvas.rotate(45, 100, 100);
+//                mCanvas.scale(2, 2);
                 mCanvas.drawRect(new Rect(200, 0, 400, 200), mPaint);
                 mCanvas.restore();
 
