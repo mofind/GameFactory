@@ -10,12 +10,15 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
+import com.mofind.gametank.spirit.Bullet;
 import com.mofind.gametank.spirit.EnemyTank;
 import com.mofind.gametank.spirit.HeroTank;
 import com.mofind.gametank.spirit.Tank;
 import com.mofind.gametank.spirit.Wall;
 import com.mofind.gametank.widget.Rocker;
 import com.mofind.gametank.widget.ShootButton;
+
+import java.util.Vector;
 
 /**
  * Created by mofind on 16/6/28.
@@ -38,6 +41,11 @@ public class GameView extends SurfaceView implements Callback, Runnable {
     private Wall mWall;
     private Rocker mRocker;
     private ShootButton mBtn;
+
+    // 主角子弹容器
+    private Vector<Bullet> vcBullet;
+    // 添加子弹的计数器
+    private int countBullet;
 
     public GameView(Context context) {
         super(context);
@@ -84,6 +92,9 @@ public class GameView extends SurfaceView implements Callback, Runnable {
 
         // 英雄坦克
         mHeroTank = new HeroTank();
+
+        //主角子弹容器实例
+//        vcBulletPlayer = new Vector<>();
 
         // 敌方坦克
         mEnemyTank = new EnemyTank(0, 0, 5, Tank.DIR_RIGHT);
@@ -191,6 +202,24 @@ public class GameView extends SurfaceView implements Callback, Runnable {
                 mHeroTank.x = mWall.x - mHeroTank.width;
             }
         }
+
+//        //每1秒添加一个主角子弹
+//        countPlayerBullet++;
+//        if (countPlayerBullet % 20 == 0) {
+//            Bullet b = new Bullet(mHeroTank);
+//            b.draw(mCanvas);
+//            vcBulletPlayer.add(b);
+//        }
+//
+//        //处理主角子弹逻辑
+//        for (int i = 0; i < vcBulletPlayer.size(); i++) {
+//            Bullet b = vcBulletPlayer.elementAt(i);
+//            if (b.isDead) {
+//                vcBulletPlayer.removeElement(b);
+//            } else {
+//                b.shoot();
+//            }
+//        }
     }
 
     @Override

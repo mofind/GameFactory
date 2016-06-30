@@ -11,12 +11,9 @@ import com.mofind.gametank.GameConfig;
  */
 public class HeroTank extends Tank {
 
-    public Bullet mBullet;
-
     public HeroTank() {
         super();
         this.isSelf = true;
-        mBullet = new Bullet(this);
         reset();
     }
 
