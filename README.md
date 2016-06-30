@@ -20,3 +20,10 @@ Activity窗口的顶层视图DecorView及其两个TextView控件的UI都是绘�
 <b>Q : SurfaceView的其它特性</b>
 <br>
 SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使用两个缓冲区，其中一个称为Front Buffer，另外一个称为Back Buffer。UI总是先在Back Buffer中绘制，然后再和Front Buffer交换，渲染到显示设备中。
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
