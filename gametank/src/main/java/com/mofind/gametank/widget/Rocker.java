@@ -17,12 +17,12 @@ public class Rocker {
     private Paint paint;
 
     // 大圆与小圆的中心点坐标
-    private float RockerCircleX, RockerCircleY;
-    private float SmallRockerCircleX, SmallRockerCircleY;
+    private float mBigCircleX, mBigCircleY;
+    private float mSmallCircleX, mSmallCircleY;
 
     // 大圆与小圆的半径
-    private final int RockerCircleR = 100;
-    private final float SmallRockerCircleR = 40;
+    private final int mBigCircleR = 100;
+    private final float mSmallCircleR = 40;
 
     // 默认位置
     private final int mDefaultPositionX = 150;
@@ -45,10 +45,10 @@ public class Rocker {
         canvas.save();
         // 画摇杆大圆区域
         paint.setColor(0x30ffffff);
-        canvas.drawCircle(RockerCircleX, RockerCircleY, RockerCircleR, paint);
+        canvas.drawCircle(mBigCircleX, mBigCircleY, mBigCircleR, paint);
         // 画摇杆小圆区域
         paint.setColor(0xccffffff);
-        canvas.drawCircle(SmallRockerCircleX, SmallRockerCircleY, SmallRockerCircleR, paint);
+        canvas.drawCircle(mSmallCircleX, mSmallCircleY, mSmallCircleR, paint);
         canvas.restore();
     }
 
@@ -64,16 +64,16 @@ public class Rocker {
                 return true;
             }
             // 如果小圆的中心点移出大圆的范围
-            if (Math.sqrt(Math.pow((RockerCircleX - touchX), 2) + Math.pow((RockerCircleY - touchY), 2)) >= RockerCircleR) {
-                double tempRad = getRad(RockerCircleX, RockerCircleY, event.getX(), event.getY());
-                getXY(RockerCircleX, RockerCircleY, RockerCircleR, tempRad);
+            if (Math.sqrt(Math.pow((mBigCircleX - touchX), 2) + Math.pow((mBigCircleY - touchY), 2)) >= mBigCircleR) {
+                double tempRad = getRad(mBigCircleX, mBigCircleY, event.getX(), event.getY());
+                getXY(mBigCircleX, mBigCircleY, mBigCircleR, tempRad);
             } else {
-                SmallRockerCircleX = (int) event.getX();
-                SmallRockerCircleY = (int) event.getY();
+                mSmallCircleX = (int) event.getX();
+                mSmallCircleY = (int) event.getY();
             }
 
             // 判断方向
-            double angle = getAngle(SmallRockerCircleX, SmallRockerCircleY, RockerCircleX, RockerCircleY);
+            double angle = getAngle(mSmallCircleX, mSmallCircleY, mBigCircleX, mBigCircleY);
             setDirection(angle);
         }
         // 监听松手的事件
@@ -142,15 +142,15 @@ public class Rocker {
     }
 
     public void getXY(float centerX, float centerY, float R, double rad) {
-        SmallRockerCircleX = (float) (R * Math.cos(rad)) + centerX;
-        SmallRockerCircleY = (float) (R * Math.sin(rad)) + centerY;
+        mSmallCircleX = (float) (R * Math.cos(rad)) + centerX;
+        mSmallCircleY = (float) (R * Math.sin(rad)) + centerY;
     }
 
     public void reset() {
-        RockerCircleX = mDefaultPositionX;
-        RockerCircleY = mDefaultPositionY;
-        SmallRockerCircleX = mDefaultPositionX;
-        SmallRockerCircleY = mDefaultPositionY;
+        mBigCircleX = mDefaultPositionX;
+        mBigCircleY = mDefaultPositionY;
+        mSmallCircleX = mDefaultPositionX;
+        mSmallCircleY = mDefaultPositionY;
 
         if (onRockerStatusListener != null)
             onRockerStatusListener.onDirection(DIR_NO);
