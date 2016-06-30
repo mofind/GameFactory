@@ -17,13 +17,26 @@ Activity窗口的顶层视图DecorView及其两个TextView控件的UI都是绘�
 <br>
 注意，用来描述SurfaceView的Layer或者LayerBuffer的Z轴位置是小于用来其宿主Activity窗口的Layer的Z轴位置的，但是前者会在后者的上面挖一个“洞”出来，以便它的UI可以对用户可见。实际上，SurfaceView在其宿主Activity窗口上所挖的“洞”只不过是在其宿主Activity窗口上设置了一块透明区域。
 <br>
-<b>Q : SurfaceView的其它特性</b>
+<b>SurfaceView的其它特性</b>
 <br>
 SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使用两个缓冲区，其中一个称为Front Buffer，另外一个称为Back Buffer。UI总是先在Back Buffer中绘制，然后再和Front Buffer交换，渲染到显示设备中。
 <br>
+<b>SurfaceView绘图的几个重要方法</b>
+<br>
+
 <br>
 <br>
 <br>
 <br>
 <br>
-<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+参考资料：
+<br>
+<a helf="">碰撞检测算法 http://blog.csdn.net/shineflowers/article/details/41084329</a>
+<br>
+
+
