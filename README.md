@@ -30,10 +30,9 @@ SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使
 <br>
 <br>
 一、canvas.translate() － 画布的平移：
-<br>
-<br>
+``` java
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
-<br>
+```
 <br>
 此时整个画布的左上角出现了一个红色的矩形（为了更清楚，蓝色打个底）该矩形大小为400 X 400 ，效果如下：
 <br>
@@ -41,11 +40,11 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <br>
 接下来我们canvas.translate( )玩玩
 <br>
-<br>
+``` java
 canvas.drawColor(Color.BLUE);  
 canvas.translate(100, 100);  
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
-<br>
+```
 <br>
 <img src="http://img.blog.csdn.net/20150506125056610?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
 <br>
@@ -53,11 +52,11 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <br>
 二、canvas.scale( ) － 画布的缩放：
 <br>
-<br>
+``` java
 canvas.scale(0.5f, 0.5f); 
 mPaint.setColor(Color.YELLOW);  
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
-<br>
+```
 <br>
 <img src="http://img.blog.csdn.net/20150506204938070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
 <br>
@@ -81,12 +80,12 @@ canvas.rotate(45,200,200);
 <br>
 四、canvas.skew( ) － 画布的错切： 
 <br>
-<br>
+``` java
 // x 方向上倾斜45 度  
 canvas.skew(1, 0);  
 mPaint.setColor(0x8800ff00);  
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
-<br>
+```
 <br>
 <img src="http://img.blog.csdn.net/20150507132403246?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
 <br>
