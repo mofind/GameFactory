@@ -58,6 +58,11 @@ public class Rocker {
 
         // 监听按下与移动事件
         if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+            // 手指触摸区域不能超过屏幕的左半部分
+            if(touchX > GameConfig.SCREEN_W / 2) {
+                reset();
+                return true;
+            }
             // 如果小圆的中心点移出大圆的范围
             if (Math.sqrt(Math.pow((RockerCircleX - touchX), 2) + Math.pow((RockerCircleY - touchY), 2)) >= RockerCircleR) {
                 double tempRad = getRad(RockerCircleX, RockerCircleY, event.getX(), event.getY());
@@ -104,6 +109,7 @@ public class Rocker {
 
     /**
      * 判断方向
+     *
      * @param angle
      */
     public void setDirection(double angle) {
