@@ -18,8 +18,6 @@ import com.mofind.gametank.spirit.Wall;
 import com.mofind.gametank.widget.Rocker;
 import com.mofind.gametank.widget.ShootButton;
 
-import java.util.Vector;
-
 /**
  * Created by mofind on 16/6/28.
  */
@@ -38,14 +36,10 @@ public class GameView extends SurfaceView implements Callback, Runnable {
     // 精灵类与控件
     private HeroTank mHeroTank;
     private EnemyTank mEnemyTank;
+    private Bullet mBullet;
     private Wall mWall;
     private Rocker mRocker;
     private ShootButton mBtn;
-
-    // 主角子弹容器
-    private Vector<Bullet> vcBullet;
-    // 添加子弹的计数器
-    private int countBullet;
 
     public GameView(Context context) {
         super(context);
@@ -93,9 +87,6 @@ public class GameView extends SurfaceView implements Callback, Runnable {
         // 英雄坦克
         mHeroTank = new HeroTank();
 
-        //主角子弹容器实例
-//        vcBulletPlayer = new Vector<>();
-
         // 敌方坦克
         mEnemyTank = new EnemyTank(0, 0, 5, Tank.DIR_RIGHT);
 
@@ -104,7 +95,7 @@ public class GameView extends SurfaceView implements Callback, Runnable {
         mBtn.setOnClickListener(new ShootButton.OnClickListener() {
             @Override
             public void onClick(ShootButton button) {
-                Log.d("shoot", "发射子弹");
+                mBullet = new Bullet(mHeroTank);
             }
         });
 
@@ -148,6 +139,8 @@ public class GameView extends SurfaceView implements Callback, Runnable {
                 mHeroTank.draw(mCanvas);
                 // 绘制敌军坦克
                 mEnemyTank.draw(mCanvas);
+                // 绘制子弹
+                mBullet.draw(mCanvas);
             }
         } catch (Exception e) {
             /*
@@ -168,7 +161,7 @@ public class GameView extends SurfaceView implements Callback, Runnable {
         mTouchY = (int) event.getY();
 
         if (mBtn != null) {
-            if(mBtn.onTouchEvent(event)) {
+            if (mBtn.onTouchEvent(event)) {
                 return true;
             }
         }
@@ -203,23 +196,10 @@ public class GameView extends SurfaceView implements Callback, Runnable {
             }
         }
 
-//        //每1秒添加一个主角子弹
-//        countPlayerBullet++;
-//        if (countPlayerBullet % 20 == 0) {
-//            Bullet b = new Bullet(mHeroTank);
-//            b.draw(mCanvas);
-//            vcBulletPlayer.add(b);
-//        }
-//
-//        //处理主角子弹逻辑
-//        for (int i = 0; i < vcBulletPlayer.size(); i++) {
-//            Bullet b = vcBulletPlayer.elementAt(i);
-//            if (b.isDead) {
-//                vcBulletPlayer.removeElement(b);
-//            } else {
-//                b.shoot();
-//            }
-//        }
+        // 子弹超出屏幕回收
+        if (mBullet != null && mBullet.isDead) {
+            mBullet = null;
+        }
     }
 
     @Override

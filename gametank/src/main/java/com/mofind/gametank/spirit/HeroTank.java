@@ -56,7 +56,7 @@ public class HeroTank extends Tank {
             return true;
         }
 
-//        Log.i("check", "x= " + x + " y= " + y);
+//        Log.i("check", "mBulletX= " + mBulletX + " mBulletY= " + mBulletY);
 
         return false;
     }

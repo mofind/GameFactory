@@ -11,7 +11,7 @@ import android.graphics.Paint;
  */
 public class Bullet {
 
-    public float x, y, r;
+    public float mBulletX, mBulletY, mBulletR;
     public int speed = 20;
     private Paint mPaint = new Paint();
 
@@ -26,22 +26,24 @@ public class Bullet {
     public boolean isDead;
 
     public Bullet(HeroTank tank) {
-        x = tank.x;
-        y = tank.y;
-        r = 10;
+        mBulletX = tank.x + tank.width / 2;
+        mBulletY = tank.y;
+        mBulletR = 10;
 
         mPaint.setColor(Color.WHITE);
     }
 
     public void draw(Canvas c) {
         c.save();
-        c.drawCircle(x, y, r, mPaint);
+        c.drawCircle(mBulletX, mBulletY, mBulletR, mPaint);
         c.restore();
+
+        shoot();
     }
 
     public void shoot() {
-        y -= speed;
-        if (y < -50) {
+        mBulletY -= speed;
+        if (mBulletY < -50) {
             isDead = true;
         }
     }

@@ -40,18 +40,18 @@ public class EnemyTank extends Tank {
         }
 
 //        // 上边界
-//        if (y < 0) {
-//            status = (x <= 0 ? DIR_RIGHT : DIR_LEFT);
+//        if (mBulletY < 0) {
+//            status = (mBulletX <= 0 ? DIR_RIGHT : DIR_LEFT);
 //            return true;
 //        }
 //
 //        // 下边界
-//        if (y > GameConfig.SCREEN_H - height) {
+//        if (mBulletY > GameConfig.SCREEN_H - height) {
 //            status = DIR_UP;
 //            return true;
 //        }
 //
-//        Log.i("check", "x= " + x + " y= " + y + " h= " + (GameConfig.SCREEN_H - height));
+//        Log.i("check", "mBulletX= " + mBulletX + " mBulletY= " + mBulletY + " h= " + (GameConfig.SCREEN_H - height));
 
         return false;
     }
