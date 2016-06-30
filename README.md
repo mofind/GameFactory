@@ -3,9 +3,11 @@
 <br><br>
 <strong>SurfaceView的使用</strong>
 <br>
+<br>
 <b>Q : 什么是SurfaceView?</b>
 <br>
 A : 在Android系统中，有一种特殊的视图，称为SurfaceView，它拥有独立的绘图表面，即它不与其宿主窗口共享同一个绘图表面。由于拥有独立的绘图表面，因此SurfaceView的UI就可以在一个独立的线程中进行绘制。又由于不会占用主线程资源，SurfaceView一方面可以实现复杂而高效的UI，另一方面又不会导致用户输入得不到及时响应。
+<br>
 <br>
 <b>Q : SurfaceView与View有什么区别和联系?</b>
 <br>
@@ -27,7 +29,9 @@ SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使
 <br>
 一、canvas.translate() － 画布的平移：
 <br>
+<br>
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
+<br>
 <br>
 此时整个画布的左上角出现了一个红色的矩形（为了更清楚，蓝色打个底）该矩形大小为400 X 400 ，效果如下：
 <br>
@@ -35,9 +39,11 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <br>
 接下来我们canvas.translate( )玩玩
 <br>
+<br>
 canvas.drawColor(Color.BLUE);  
 canvas.translate(100, 100);  
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
+<br>
 <br>
 <img src="http://img.blog.csdn.net/20150506125056610?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
 <br>
@@ -45,9 +51,11 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <br>
 二、canvas.scale( ) － 画布的缩放：
 <br>
+<br>
 canvas.scale(0.5f, 0.5f); 
 mPaint.setColor(Color.YELLOW);  
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
+<br>
 <br>
 <img src="http://img.blog.csdn.net/20150506204938070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
 <br>
@@ -55,9 +63,11 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <br>
 三、canvas.rotate( ) － 画布的旋转：
 <br>
+<br>
 mPaint.setColor(Color.YELLOW);  
 canvas.rotate(45);  
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint); 
+<br>
 <br>
 <img src="http://img.blog.csdn.net/20150507125942943?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
 <br>
@@ -69,12 +79,15 @@ canvas.rotate(45,200,200);
 <br>
 四、canvas.skew( ) － 画布的错切： 
 <br>
+<br>
 // x 方向上倾斜45 度  
 canvas.skew(1, 0);  
 mPaint.setColor(0x8800ff00);  
 canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
 <br>
+<br>
 <img src="http://img.blog.csdn.net/20150507132403246?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
+<br>
 <br>
 关于Canvas(画布)的translate(平移)、scale(缩放) 、rotate(旋转) 、skew(错切)就说这么多，这些方法都不复杂，而灵活的使用往往能解决绘制中很多看似复杂的问题，所以重在理解，并在看到与之相关的效果时能够及时恰当的进行关联。
 <br>
