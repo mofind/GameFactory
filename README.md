@@ -36,7 +36,12 @@ SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使
 <br>
 参考资料：
 <br>
-<a helf="">碰撞检测算法 http://blog.csdn.net/shineflowers/article/details/41084329</a>
+<a>Android视图SurfaceView的实现原理分析 http://blog.csdn.net/luoshengyang/article/details/8661317/</a>
 <br>
-
-
+<br>
+<a>碰撞检测算法 http://blog.csdn.net/shineflowers/article/details/41084329</a>
+<br>
+<a>Canvas之translate、scale、rotate、skew方法讲解！ http://blog.csdn.net/tianjian4592/article/details/45234419</a>
+<br>
+<br>
+<br>
