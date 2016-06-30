@@ -21,10 +21,19 @@ Activity窗口的顶层视图DecorView及其两个TextView控件的UI都是绘�
 <br>
 SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使用两个缓冲区，其中一个称为Front Buffer，另外一个称为Back Buffer。UI总是先在Back Buffer中绘制，然后再和Front Buffer交换，渲染到显示设备中。
 <br>
+<br>
 <b>SurfaceView绘图的几个重要方法</b>
 <br>
-
 <br>
+一、canvas.translate() － 画布的平移：
+<br>
+canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);  
+<br>
+此时整个画布的左上角出现了一个红色的矩形（为了更清楚，蓝色打个底）该矩形大小为400 X 400 ，效果如下：
+<br>
+<img src="http://img.blog.csdn.net/20150506124913650?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" />
+<br>
+接下来我们canvas.translate( )玩玩
 <br>
 <br>
 <br>
@@ -38,10 +47,10 @@ SurfaceView采用一种称为“双缓冲”的技术。双缓冲意味着要使
 <br>
 <a>Android视图SurfaceView的实现原理分析 http://blog.csdn.net/luoshengyang/article/details/8661317/</a>
 <br>
-<br>
 <a>碰撞检测算法 http://blog.csdn.net/shineflowers/article/details/41084329</a>
 <br>
 <a>Canvas之translate、scale、rotate、skew方法讲解！ http://blog.csdn.net/tianjian4592/article/details/45234419</a>
 <br>
 <br>
+特别鸣谢：王志翔、王珂
 <br>
