@@ -99,6 +99,8 @@ canvas.drawRect(new Rect(0, 0, 400, 400), mPaint);
 <b>游戏框架的实现</b>
 <br>
 <br>
+``` java
+
 /**
  * Created by mofind on 16/6/28.
  */
@@ -221,7 +223,7 @@ public class GameView extends SurfaceView implements Callback, Runnable {
         }
     }
 }
-
+```
 <br>
 <br>
 <br>
