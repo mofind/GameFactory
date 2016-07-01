@@ -1,1 +1,1 @@
-include ':GameMain', ':gameframe', ':gametank', ':gamemap'
+include ':GameMain', ':gameframe', ':gametank', ':gamemap', ':gamesample'
