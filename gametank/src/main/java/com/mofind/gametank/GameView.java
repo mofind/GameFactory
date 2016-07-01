@@ -35,7 +35,7 @@ public class GameView extends SurfaceView implements Callback, Runnable {
 
     // 精灵类与控件
     private HeroTank mHeroTank;
-    private EnemyTank mEnemyTank;
+    private EnemyTank[] mEnemyTanks;
     private Bullet mBullet;
     private Wall mWall;
     private Rocker mRocker;
@@ -88,7 +88,16 @@ public class GameView extends SurfaceView implements Callback, Runnable {
         mHeroTank = new HeroTank();
 
         // 敌方坦克
-        mEnemyTank = new EnemyTank(0, 0, 5, Tank.DIR_RIGHT);
+        mEnemyTanks = new EnemyTank[10];
+        boolean flag = false;
+        for (int i = 0; i < mEnemyTanks.length; i++) {
+            if (flag) {
+                mEnemyTanks[i] = new EnemyTank(0, i * 100, 1 + (int) (Math.random() * 19), Tank.DIR_LEFT);
+            } else {
+                mEnemyTanks[i] = new EnemyTank(0, i * 100, 1 + (int) (Math.random() * 19), Tank.DIR_RIGHT);
+            }
+            flag = !flag;
+        }
 
         // 实例射击按钮
         mBtn = new ShootButton();
@@ -138,7 +147,9 @@ public class GameView extends SurfaceView implements Callback, Runnable {
                 // 绘制英雄坦克
                 mHeroTank.draw(mCanvas);
                 // 绘制敌军坦克
-                mEnemyTank.draw(mCanvas);
+                for(EnemyTank tank : mEnemyTanks) {
+                    tank.draw(mCanvas);
+                }
                 // 绘制子弹
                 mBullet.draw(mCanvas);
             }
@@ -179,10 +190,12 @@ public class GameView extends SurfaceView implements Callback, Runnable {
         //TODO 游戏逻辑
         // 移动坦克
         mHeroTank.move();
-        mEnemyTank.move();
+        for(EnemyTank tank : mEnemyTanks) {
+            tank.move();
+        }
 
         // 碰撞测试 -- 敌军坦克
-        if (mHeroTank.isCheckEnemy(mEnemyTank)) {
+        if (mHeroTank.isCheckEnemy(mEnemyTanks)) {
             Log.e("check", "碰到敌方坦克，你挂了~");
             mHeroTank.reset();
         }

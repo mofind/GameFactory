@@ -6,7 +6,7 @@ import com.mofind.gametank.GameConfig;
 
 /**
  * Created by mofind on 16/6/29.
- * <p/>
+ * <p>
  * 玩家坦克类
  */
 public class HeroTank extends Tank {
@@ -87,6 +87,14 @@ public class HeroTank extends Tank {
             return false;
         }
         return true;
+    }
+
+    public boolean isCheckEnemy(Tank[] tanks) {
+        for (Tank t : tanks) {
+            if (isCheckEnemy(t))
+                return true;
+        }
+        return false;
     }
 
 }
